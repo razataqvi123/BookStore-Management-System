@@ -1,0 +1,31 @@
+﻿@model bookstoresolution.Models.Billing
+
+@{
+    ViewData["Title"] = "Billing Details";
+}
+
+<h1>Billing Details</h1>
+
+<div>
+    <h4>Billing</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Bill ID</dt>
+        <dd class="col-sm-10">@Model.BillId</dd>
+
+        <dt class="col-sm-2">Customer</dt>
+        <dd class="col-sm-10">@Model.Customer.Name</dd>
+
+        <dt class="col-sm-2">Bill Date</dt>
+        <dd class="col-sm-10">@Model.BillDate?.ToString("dd-MM-yyyy HH:mm")</dd>
+
+        <dt class="col-sm-2">Total Amount</dt>
+        <dd class="col-sm-10">@Model.TotalAmount</dd>
+    </dl>
+</div>
+
+
+
+<div>
+    <a asp-action="Index" class="btn btn-primary">Back to List</a>
+</div>

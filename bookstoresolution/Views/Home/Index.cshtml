@@ -1,0 +1,92 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!-- Hero Section -->
+<div class="container-fluid bg-info text-white text-center py-5">
+    <h1 class="display-3">Welcome to the Bookstore</h1>
+    <p class="lead">Explore a wide range of books, authors, and categories to meet your literary needs</p>
+    <a href="@Url.Action("Index", "Books")" class="btn btn-light btn-lg">Browse Books</a>
+</div>
+
+
+
+
+<!-- About the Store Section -->
+<div class="container mt-5">
+    <h2 class="text-center mb-4">About Our Bookstore</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <img src="https://img.freepik.com/premium-vector/book-cover-abstract-minimalist-art-soft-cover-book-design-poster-design_665438-357.jpg" alt="Books Image" class="img-fluid rounded shadow-lg" />
+        </div>
+        <div class="col-md-6">
+            <h3>Your Ultimate Reading Destination</h3>
+            <p>Our bookstore offers a rich collection of books across different genres. From classic literature to the latest bestsellers, we bring you everything you need for your reading pleasure. Whether you are an avid reader or a new book lover, our store caters to all tastes. Explore categories like Fiction, Non-fiction, Romance, Science Fiction, and more!</p>
+            <p>Additionally, our authors page showcases renowned writers who have made lasting contributions to the world of literature. Dive into their masterpieces!</p>
+        </div>
+    </div>
+</div>
+
+<!-- Featured Books Section -->
+<div class="container my-5">
+    <h2 class="text-center mb-4">Featured Books</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <img src="https://lh6.googleusercontent.com/proxy/7Hx5DWUltrZ4sKsqc97Va5d7Yq4M_GHpzwU9w-n5rGU0HKfqDa3HWccO6qJ5jnjjTZFdDu01P4ir0tcFEk0cMBUZHqw9WJltJFcVZLvOodiv2JteyicFQKVd8dXG5rQBYp6Tfff8J4kgyhNg4fofL9jcmskPasB52v8UtFljCN-TgyMjEO0sYAUMAPY" class="card-img-top" alt="Book 1">
+                <div class="card-body">
+                    <h5 class="card-title">Book Title 1</h5>
+                    <p class="card-text">A brief description of the book goes here. An engaging story that captures the imagination.</p>
+                    <a href="@Url.Action("Details", "Books", new { id = 1 })" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="https://tmm.chicagodistributioncenter.com/IsbnImages/9780226822952.jpg" class="card-img-top" alt="Book 2">
+                <div class="card-body">
+                    <h5 class="card-title">Book Title 2</h5>
+                    <p class="card-text">This book delves deep into compelling themes and characters, offering an unforgettable journey.</p>
+                    <a href="@Url.Action("Details", "Books", new { id = 2 })" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCM7U1V_ma43E8nj8wgEUSnpeo2VMVUah6ypq4QS9rIFbGzr5g1AE2ZHhANTHTqzugrRE&usqp=CAU" class="card-img-top" alt="Book 3">
+                <div class="card-body">
+                    <h5 class="card-title">Book Title 3</h5>
+                    <p class="card-text">A thrilling tale that will keep you on the edge of your seat from start to finish!</p>
+                    <a href="@Url.Action("Details", "Books", new { id = 3 })" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        .navbar {
+            margin-bottom: 20px;
+        }
+
+        .hero-section {
+            background-color: #5e9fd0;
+            color: white;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .btn-lg {
+            font-size: 1.25rem;
+        }
+
+        .about-section img {
+            max-width: 100%;
+        }
+
+        .card {
+            margin-top: 20px;
+        }
+    </style>
+}

@@ -1,0 +1,67 @@
+﻿@model IEnumerable<bookstoresolution.Models.Book>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- Include Bootstrap CSS (add this in _Layout.cshtml or directly here) -->
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            margin-top: 20px;
+        }
+
+        .table th, .table td {
+            text-align: center;
+        }
+
+        .btn-custom {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<div class="container">
+    <h1>@ViewData["Title"]</h1>
+
+    <!-- Button to create new book -->
+    <p>
+        <a class="btn btn-primary btn-custom" asp-action="Create">Create New Book</a>
+    </p>
+
+    <!-- Book Table -->
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Title)</th>
+                <th>@Html.DisplayNameFor(model => model.Price)</th>
+                <th>@Html.DisplayNameFor(model => model.Stock)</th>
+                <th>@Html.DisplayNameFor(model => model.Author)</th>
+                <th>@Html.DisplayNameFor(model => model.Category)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Price)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Stock)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Author.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Category.Name)</td>
+                    <td>
+                        <!-- Edit, Details, and Delete actions -->
+                        <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@item.BookId">Edit</a>
+                        <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.BookId">Details</a>
+                        <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.BookId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<!-- Include Bootstrap JS (optional) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

@@ -1,0 +1,84 @@
+﻿@model IEnumerable<bookstoresolution.Models.Billing>
+@{
+    ViewData["Title"] = "Billing Index";
+}
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 20px;
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+
+        .table th, .table td {
+            text-align: center;
+        }
+
+        .table-bordered {
+            border: 1px solid #ddd;
+        }
+
+        .table-dark {
+            background-color: #343a40;
+            color: white;
+        }
+
+        .btn-custom {
+            margin-top: 10px;
+        }
+
+        .action-links a {
+            margin-right: 10px;
+        }
+
+        h3 {
+            margin-top: 20px;
+        }
+
+        button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<div class="container">
+    <h2>@ViewData["Title"]</h2>
+    <p>
+        <a asp-action="Create" class="btn btn-success">Create New Bill</a>
+    </p>
+
+    <h3>List of Bills</h3>
+    <table class="table table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>Bill ID</th>
+                <th>Customer</th>
+                <th>Bill Date</th>
+                <th>Total Amount</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.BillId</td>
+                    <td>@item.Customer.Name</td>
+                    <td>@item.BillDate?.ToString("dd-MM-yyyy HH:mm")</td>
+                    <td>@item.TotalAmount</td>
+                    <td class="action-links">
+                        <a asp-action="Details" asp-route-id="@item.BillId" class="btn btn-info btn-sm">Details</a> |
+                        <a asp-action="Edit" asp-route-id="@item.BillId" class="btn btn-warning btn-sm">Edit</a> |
+                        <a asp-action="Delete" asp-route-id="@item.BillId" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
