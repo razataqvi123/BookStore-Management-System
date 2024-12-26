@@ -10,11 +10,11 @@
     <thead>
         <tr>
             <th>Bill ID</th>
+            <th>Customer Name</th>
             <th>Book Title</th>
             <th>Quantity</th>
             <th>Unit Price</th>
             <th>Total Price</th>
-            <th>Customer Name</th>
             <th>Bill Date</th>
         </tr>
     </thead>
@@ -23,11 +23,11 @@
         {
             <tr>
                 <td>@detail.BillId</td>
+                <td>@detail.Bill.Customer.Name</td>
                 <td>@detail.Book.Title</td>
                 <td>@detail.Quantity</td>
                 <td>@detail.Book.Price</td>
-                <td>@detail.TotalPrice</td>
-                <td>@detail.Bill.Customer.Name</td> <!-- Access Customer Name -->
+                <td>@detail.TotalPrice</td> 
                 <td>
                     @(detail.Bill.BillDate.HasValue
                         ? detail.Bill.BillDate.Value.ToString("dd-MM-yyyy HH:mm")

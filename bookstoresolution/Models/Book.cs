@@ -9,7 +9,6 @@ public partial class Book
     public int BookId { get; set; }
 
     [Required]
-   // [RegularExpression("^[a-zA-Z0-9]*$", ErrorMessage = "Only alphanumeric characters are allowed.")]
     public string Title { get; set; } = null!;
 
     [Required]

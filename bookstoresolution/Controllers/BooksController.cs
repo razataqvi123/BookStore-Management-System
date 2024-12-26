@@ -48,8 +48,8 @@ namespace bookstoresolution.Controllers
         // GET: Books/Create
         public IActionResult Create()
         {
-            ViewData["AuthorId"] = new SelectList(_context.Authors, "AuthorId", "AuthorId");
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryId");
+            ViewData["AuthorId"] = new SelectList(_context.Authors, "AuthorId", "Name");
+            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "Name");
             return View();
         }
 
@@ -66,8 +66,8 @@ namespace bookstoresolution.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
          //   }
-            ViewData["AuthorId"] = new SelectList(_context.Authors, "AuthorId", "AuthorName");
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName");
+            ViewData["AuthorId"] = new SelectList(_context.Authors, "AuthorId", "Name");
+            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "Name");
             return View(book);
         }
 
@@ -84,8 +84,8 @@ namespace bookstoresolution.Controllers
             {
                 return NotFound();
             }
-            ViewData["AuthorId"] = new SelectList(_context.Authors, "AuthorId", "AuthorId", book.AuthorId);
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryId", book.CategoryId);
+            ViewData["AuthorId"] = new SelectList(_context.Authors, "AuthorId", "Name", book.AuthorId);
+            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "Name", book.CategoryId);
             return View(book);
         }
 
@@ -101,8 +101,8 @@ namespace bookstoresolution.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
+           // if (ModelState.IsValid)
+           // {
                 try
                 {
                     _context.Update(book);
@@ -120,9 +120,10 @@ namespace bookstoresolution.Controllers
                     }
                 }
                 return RedirectToAction(nameof(Index));
-            }
-            ViewData["AuthorId"] = new SelectList(_context.Authors, "AuthorId", "AuthorId", book.AuthorId);
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryId", book.CategoryId);
+          //  }
+
+            ViewData["AuthorId"] = new SelectList(_context.Authors, "AuthorId", "Name", book.AuthorId);
+            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "Name", book.CategoryId);
             return View(book);
         }
 
